@@ -8,8 +8,8 @@ class FormInput extends Component {
   render() {
     return (
       <div>
-        <label htmlFor={this.props.name}>{this.props.label}</label>
-        <input type="text" name={this.props.name}/>
+        <label>{this.props.label}</label>
+        <input type="text" {this.props.payload}/>
       </div>
     )
 

@@ -2,55 +2,49 @@ import React, { Component } from 'react'
 
 class FormContainer extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = {
+      payload: {
+        firstName: ''
+        lastName: ''
+        address: ''
+        city: ''
+        state: ''
+        zipCode: ''
+        phoneNumber: ''
+        email: ''
+      }
+    }
   }
+
+
+  handleChange(event) {
+    this.setState({
+      newPayload = event.target.payload
+      payload: newPayload
+    })
+  }
+
+  handleFormSubmit(event) {
+    event.preventDefault()
+    alert("Your form was submitted" + this.state.payload)
+    }
+  }
+
 
   render() {
     return (
-      <form className="callout" id="shipping-address-form">
-        <h1>Shipping Address</h1>
-        <div>
-          <label htmlFor="firstName">First Name:</label>
-          <input type="text" id="first-name" name="firstName" />
-        </div>
+      <form className="callout" onSubmit={this.handleFormSubmit}>
+        <fieldset>
+        <FormContainer
+          label='Shipping Address'
+          payload={this.state.payload}
 
-        <div>
-          <label htmlFor="lastName">Last Name:</label>
-          <input type="text" id="last-name" name="lastName" />
-        </div>
-
-        <label htmlFor="address">Address:</label>
-        <input type="text" id="address" name="address" />
-
-        <div>
-          <label htmlFor="city">City:</label>
-          <input type="text" id="city" name="city" />
-        </div>
-
-        <div>
-          <label htmlFor="state">State:</label>
-          <input type="text" id="state" name="state" />
-        </div>
-
-        <div>
-          <label htmlFor="zipCode">Zip Code:</label>
-          <input type="text" id="zip-code" name="zipCode" />
-        </div>
-
-        <div>
-          <label htmlFor="phoneNumber">Phone Number:</label>
-          <input type="text" id="phone-number" name="phoneNumber" />
-        </div>
-
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input type="text" id="email" name="email" />
-        </div>
-
-        <input type="submit" className="button" value="Submit "/>
+        />
+        <input type="submit" value="Submit" className="button" onClick={this.handleFormSubmit}/>
       </form>
     )
-  }
-}
+
+
 
 export default FormContainer
