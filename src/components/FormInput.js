@@ -9,7 +9,7 @@ class FormInput extends Component {
     return (
       <div>
         <label>{this.props.label}</label>
-        <input type="text" {this.props.payload}/>
+        <input {this.props.payload}/>
       </div>
     )
 
